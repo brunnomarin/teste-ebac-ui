@@ -15,7 +15,7 @@ describe('Funcionalidade Página de Produtos', () => {
             .click()
     });
 
-    it.only('Deve adicionar um produto ao carrinho', () => {
+    it('Deve adicionar um produto ao carrinho', () => {
 
         var quantidade = 3
 
@@ -30,6 +30,16 @@ describe('Funcionalidade Página de Produtos', () => {
         cy.get('.woocommerce-message').should('contain' , quantidade + ' × “Abominable Hoodie” foram adicionados no seu carrinho.')
 
 
+    });
+
+    it('Deve adicionar produtos ao carrinho - usando comando customizado', () => {
+        cy.addProdutos('Abominable Hoodie', 'S', 'Red', 2)
+
+    });
+
+    it('Deve adicionar produtos ao carrinho - usando comando customizado', () => {
+        cy.addProdutos('Abominable Hoodie', 'L', 'Blue', 3)
+    
     });
 
 });
